@@ -37,8 +37,6 @@ namespace GastroAPI.Presentation
             return CreatedAtAction(nameof(GetOrder), new { name = created.Name }, created);
         }
 
-
-
         [HttpPost("group/add")]
         public async Task<ActionResult<Order>> AddToOrderGroup([FromBody] AddToOrderRequest request)
         {

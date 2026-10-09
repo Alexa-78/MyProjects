@@ -16,6 +16,7 @@
             // nur vorläufiges Beispiel
             // liste wird aus DB übernommen und dort die Produkte auch eingetragen
             // wird in ProductService normal eingebaut
+            /*
             List<Product> products = new List<Product> 
             {
                 new Product(1, "Wine", 2.90m),
@@ -27,6 +28,7 @@
             // ausgabe mit Linq, vorläufiges Beispiel muss woanders eingebaut werden
 
             Product prod = products.FirstOrDefault(p => p.Name == name);
+            */
         }
     }
 }

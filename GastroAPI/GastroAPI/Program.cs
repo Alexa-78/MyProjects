@@ -1,7 +1,8 @@
-using GastroAPI.Infrastructure.Entity_Framework_Core;
-using Microsoft.EntityFrameworkCore;
 using GastroAPI.Application.Interfaces;
+using GastroAPI.Application.Services;
+using GastroAPI.Infrastructure.Entity_Framework_Core;
 using GastroAPI.Infrastructure.Repository;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+
+builder.Services.AddScoped<OrderService>();
+builder.Services.AddScoped<ProductService>();
 
 // für EF Core (DBContext)
 var connectionstring = builder.Configuration.GetConnectionString("DefaultConnection");
