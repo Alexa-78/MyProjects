@@ -27,5 +27,20 @@ namespace GastroAPI.Application.Services
         {
             return await _repository.CreateOrderAsync(product, name);
         }
+
+        public async Task<Order?> AddToOrderGroupAsync(Product product, string group)
+        {
+            return await _repository.AddToOrderGroupAsync(product, group);
+        }
+
+        public async Task<Order> GetOrderGroupAsync(string group)
+        {
+            return await _repository.GetOrderGroupAsync(group);
+        }
+
+        public async Task<Order> CreateOrderGroupAsync(Product product, string group)
+        {
+            return await _repository.CreateOrderGroupAsync(product, group);
+        }
     }
 }

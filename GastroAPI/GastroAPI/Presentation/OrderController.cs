@@ -15,7 +15,7 @@ namespace GastroAPI.Presentation
             _orderService = orderService;
         }
 
-        [HttpPost]
+        [HttpPost("add")]
         public async Task<ActionResult<Order>> AddToOrder([FromBody] AddToOrderRequest request)
         {
             var order = await _orderService.AddToOrderAsync(request.Product, request.Name);
@@ -30,10 +30,34 @@ namespace GastroAPI.Presentation
             return Ok(order);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<Order>> CreateNewOrder([FromBody] Product product, string name)
+        [HttpPost("create")]
+        public async Task<ActionResult<Order>> CreateNewOrder([FromBody] AddToOrderRequest request)
         {
-            var created = await _orderService.CreateOrderAsync(product, name);
+            var created = await _orderService.CreateOrderAsync(request.Product, request.Name);
+            return CreatedAtAction(nameof(GetOrder), new { name = created.Name }, created);
+        }
+
+
+
+        [HttpPost("group/add")]
+        public async Task<ActionResult<Order>> AddToOrderGroup([FromBody] AddToOrderRequest request)
+        {
+            var order = await _orderService.AddToOrderGroupAsync(request.Product, request.Name);
+            return Ok(order);
+        }
+
+        [HttpGet("group/{name}")]
+        public async Task<ActionResult<Order>> GetOrderGroup(string name)
+        {
+            var order = await _orderService.GetOrderGroupAsync(name);
+            if (order == null) return NotFound();
+            return Ok(order);
+        }
+
+        [HttpPost("group/create")]
+        public async Task<ActionResult<Order>> CreateNewOrderGroup([FromBody] AddToOrderRequest request)
+        {
+            var created = await _orderService.CreateOrderGroupAsync(request.Product, request.Name);
             return CreatedAtAction(nameof(GetOrder), new { name = created.Name }, created);
         }
     }
