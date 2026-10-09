@@ -1,14 +1,14 @@
 ﻿using GastroAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
 
 namespace GastroAPI.Infrastructure.Entity_Framework_Core
 {
-    public class ProductContext : DbContext
+    public class GastroContext : DbContext
     {
-        public ProductContext(DbContextOptions<ProductContext> options)
+        public GastroContext(DbContextOptions<GastroContext> options)
             : base(options)
         { }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
     }
 }

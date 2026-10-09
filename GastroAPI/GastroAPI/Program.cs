@@ -12,10 +12,10 @@ builder.Services.AddControllers();
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 // für EF Core (DBContext)
-builder.Services.AddDbContext<ProductContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        sqlOptions =>
+var connectionstring = builder.Configuration.GetConnectionString("DefaultConnection");
+
+builder.Services.AddDbContext<GastroContext>(options =>
+    options.UseSqlServer(connectionstring,sqlOptions =>
         {
             sqlOptions.EnableRetryOnFailure(
                 maxRetryCount: 5,
@@ -31,7 +31,7 @@ var app = builder.Build();
 //sichergehen das DB existiert ansonst erstellen
 using (var scope = app.Services.CreateScope())
 {
-    var db = scope.ServiceProvider.GetRequiredService<ProductContext>();
+    var db = scope.ServiceProvider.GetRequiredService<GastroContext>();
     db.Database.EnsureCreated();
 }
 

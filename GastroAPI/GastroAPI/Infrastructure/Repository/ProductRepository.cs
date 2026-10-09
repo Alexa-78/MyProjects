@@ -7,9 +7,9 @@ namespace GastroAPI.Infrastructure.Repository
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly ProductContext _context;
+        private readonly GastroContext _context;
 
-        public ProductRepository(ProductContext context)
+        public ProductRepository(GastroContext context)
         {
             _context = context;
         }

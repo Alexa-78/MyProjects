@@ -6,7 +6,7 @@ namespace GastroAPI.Infrastructure.Repository
 {
     public class OrderRepository : IOrderRepository
     {
-        private readonly OrderContext _context;
+        private readonly GastroContext _context;
         
         public async Task<Order?> AddToOrderAsync(Product product, string name)
         {
