@@ -3,6 +3,8 @@ using GastroAPI.Application.Services;
 using GastroAPI.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
+using Microsoft.AspNetCore.Authorization;   //jwt
+
 namespace GastroAPI.Presentation
 {
         [Route("api/[controller]")]
@@ -30,6 +32,7 @@ namespace GastroAPI.Presentation
                 return Ok(product);
             }
 
+            [Authorize(Roles = "Admin")]
             [HttpPost]
             public async Task<ActionResult<Product>> Create([FromBody] CreateProductRequest request)
             {
@@ -42,6 +45,7 @@ namespace GastroAPI.Presentation
                 return CreatedAtAction(nameof(GetProduct), new { id = created.Id }, created);
             }
 
+            [Authorize(Roles = "Admin")]
             [HttpPut("{id}")]
             public async Task<ActionResult<Product>> Update(int id, [FromBody] UpdateProductRequest request)
             {
@@ -55,6 +59,7 @@ namespace GastroAPI.Presentation
                 return Ok(updated);
             }
 
+            [Authorize(Roles = "Admin")]
             [HttpDelete("{id}")]
             public async Task<ActionResult> Delete(int id)
             {

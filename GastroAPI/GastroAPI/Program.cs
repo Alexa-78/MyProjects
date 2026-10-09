@@ -2,7 +2,10 @@ using GastroAPI.Application.Interfaces;
 using GastroAPI.Application.Services;
 using GastroAPI.Infrastructure.Entity_Framework_Core;
 using GastroAPI.Infrastructure.Repository;
+using Microsoft.AspNetCore.Authentication.JwtBearer;    //jwt
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;   //jwt
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -31,6 +34,35 @@ builder.Services.AddDbContext<GastroContext>(options =>
     ));
 
 
+//jwt token code
+builder.Services
+.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+.AddJwtBearer(options =>
+{
+    var jwt = builder.Configuration.GetSection("Jwt");
+    var key = jwt["Key"]
+    ?? throw new InvalidOperationException("JWT-Key fehlt.");
+
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidIssuer = jwt["Issuer"],
+
+        ValidateAudience = true,
+        ValidAudience = jwt["Audience"],
+
+        ValidateLifetime = true,
+
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.UTF8.GetBytes(key))
+    };
+});
+
+builder.Services.AddAuthorization();
+//ende jwt token code
+
+
 var app = builder.Build();
 
 //sichergehen das DB existiert ansonst erstellen
@@ -44,6 +76,7 @@ using (var scope = app.Services.CreateScope())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication(); //jwt token, muss vor authorization stehen !!!!
 app.UseAuthorization();
 
 app.MapControllers();
