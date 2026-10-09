@@ -18,7 +18,7 @@ namespace GastroAPI.Presentation
         [HttpPost("add")]
         public async Task<ActionResult<Order>> AddToOrder([FromBody] AddToOrderRequest request)
         {
-            var order = await _orderService.AddToOrderAsync(request.Product, request.Name);
+            var order = await _orderService.AddToOrderAsync(request.ProductId, request.Name);
             return Ok(order);
         }
 
@@ -33,29 +33,29 @@ namespace GastroAPI.Presentation
         [HttpPost("create")]
         public async Task<ActionResult<Order>> CreateNewOrder([FromBody] AddToOrderRequest request)
         {
-            var created = await _orderService.CreateOrderAsync(request.Product, request.Name);
+            var created = await _orderService.CreateOrderAsync(request.ProductId, request.Name);
             return CreatedAtAction(nameof(GetOrder), new { name = created.Name }, created);
         }
 
         [HttpPost("group/add")]
-        public async Task<ActionResult<Order>> AddToOrderGroup([FromBody] AddToOrderRequest request)
+        public async Task<ActionResult<Order>> AddToOrderGroup([FromBody] AddToOrderGroupRequest request)
         {
-            var order = await _orderService.AddToOrderGroupAsync(request.Product, request.Name);
+            var order = await _orderService.AddToOrderGroupAsync(request.ProductId, request.Group);
             return Ok(order);
         }
 
         [HttpGet("group/{name}")]
-        public async Task<ActionResult<Order>> GetOrderGroup(string name)
+        public async Task<ActionResult<Order>> GetOrderGroup(string group)
         {
-            var order = await _orderService.GetOrderGroupAsync(name);
+            var order = await _orderService.GetOrderGroupAsync(group);
             if (order == null) return NotFound();
             return Ok(order);
         }
 
         [HttpPost("group/create")]
-        public async Task<ActionResult<Order>> CreateNewOrderGroup([FromBody] AddToOrderRequest request)
+        public async Task<ActionResult<Order>> CreateNewOrderGroup([FromBody] AddToOrderGroupRequest request)
         {
-            var created = await _orderService.CreateOrderGroupAsync(request.Product, request.Name);
+            var created = await _orderService.CreateOrderGroupAsync(request.ProductId, request.Group);
             return CreatedAtAction(nameof(GetOrder), new { name = created.Name }, created);
         }
     }

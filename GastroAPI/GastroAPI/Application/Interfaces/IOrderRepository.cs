@@ -4,12 +4,12 @@ namespace GastroAPI.Application.Interfaces
 {
     public interface IOrderRepository
     {
-        Task<Order> AddToOrderAsync(Product product, string name);
+        Task<Order> AddToOrderAsync(int productId, string name);
         Task<Order> GetOrderAsync(string name);
-        Task<Order> CreateOrderAsync(Product product, string name);
+        Task<Order> CreateOrderAsync(int productId, string name);
 
-        Task<Order> AddToOrderGroupAsync(Product product, string group);
+        Task<Order> AddToOrderGroupAsync(int productId, string group);
         Task<Order> GetOrderGroupAsync(string group);
-        Task<Order> CreateOrderGroupAsync(Product product, string group);
+        Task<Order> CreateOrderGroupAsync(int productId, string group);
     }
 }

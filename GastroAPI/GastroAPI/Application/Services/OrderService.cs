@@ -13,9 +13,9 @@ namespace GastroAPI.Application.Services
             _repository = repository;
         }
 
-        public async Task<Order?> AddToOrderAsync(Product product, string name)
+        public async Task<Order?> AddToOrderAsync(int productId, string name)
         {
-            return await _repository.AddToOrderAsync(product, name);
+            return await _repository.AddToOrderAsync(productId, name);
         }
 
         public async Task<Order> GetOrderAsync(string name)
@@ -23,14 +23,14 @@ namespace GastroAPI.Application.Services
             return await _repository.GetOrderAsync(name);
         }
 
-        public async Task<Order> CreateOrderAsync(Product product, string name)
+        public async Task<Order> CreateOrderAsync(int productId, string name)
         {
-            return await _repository.CreateOrderAsync(product, name);
+            return await _repository.CreateOrderAsync(productId, name);
         }
 
-        public async Task<Order?> AddToOrderGroupAsync(Product product, string group)
+        public async Task<Order?> AddToOrderGroupAsync(int productId, string group)
         {
-            return await _repository.AddToOrderGroupAsync(product, group);
+            return await _repository.AddToOrderGroupAsync(productId, group);
         }
 
         public async Task<Order> GetOrderGroupAsync(string group)
@@ -38,9 +38,9 @@ namespace GastroAPI.Application.Services
             return await _repository.GetOrderGroupAsync(group);
         }
 
-        public async Task<Order> CreateOrderGroupAsync(Product product, string group)
+        public async Task<Order> CreateOrderGroupAsync(int productId, string group)
         {
-            return await _repository.CreateOrderGroupAsync(product, group);
+            return await _repository.CreateOrderGroupAsync(productId, group);
         }
     }
 }

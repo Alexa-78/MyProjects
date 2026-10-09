@@ -1,4 +1,5 @@
-﻿using GastroAPI.Application.Interfaces;
+﻿using GastroAPI.Application.DTOs;
+using GastroAPI.Application.Interfaces;
 using GastroAPI.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,4 +1,4 @@
-﻿using GastroAPI.Application.Interfaces;
+﻿using GastroAPI.Application.DTOs;
 using GastroAPI.Application.Services;
 using GastroAPI.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
@@ -31,15 +31,25 @@ namespace GastroAPI.Presentation
             }
 
             [HttpPost]
-            public async Task<ActionResult<Product>> Create([FromBody] Product product)
+            public async Task<ActionResult<Product>> Create([FromBody] CreateProductRequest request)
             {
+                var product = new Product(
+                            request.Number,
+                            request.Name,
+                            request.Price);
+
                 var created = await _productService.CreateProductAsync(product);
                 return CreatedAtAction(nameof(GetProduct), new { id = created.Id }, created);
             }
 
             [HttpPut("{id}")]
-            public async Task<ActionResult<Product>> Update(int id, [FromBody] Product product)
+            public async Task<ActionResult<Product>> Update(int id, [FromBody] UpdateProductRequest request)
             {
+                var product = new Product(
+                        request.Number,
+                        request.Name,
+                        request.Price);
+
                 var updated = await _productService.UpdateProductAsync(id, product);
                 if (updated == null) return NotFound();
                 return Ok(updated);

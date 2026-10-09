@@ -8,9 +8,10 @@ namespace GastroAPI.Infrastructure.Repository
     {
         private readonly GastroContext _context;
         
-        public async Task<Order?> AddToOrderAsync(Product product, string name)
+        public async Task<Order?> AddToOrderAsync(int productId, string name)
         {
             Order order = _context.Orders.FirstOrDefault(o => o.Name == name);
+            Product product = _context.Products.FirstOrDefault(p => p.Id == productId);
             order.AddOrderedProducts(product);
             await _context.SaveChangesAsync();
 
@@ -24,8 +25,9 @@ namespace GastroAPI.Infrastructure.Repository
             return order;
         }
 
-        public async Task<Order> CreateOrderAsync(Product product, string name)
+        public async Task<Order> CreateOrderAsync(int productId, string name)
         {
+            Product product = _context.Products.FirstOrDefault(p => p.Id == productId);
             Order order = new Order();
             order.SetName(name);
             order.AddOrderedProducts(product);
@@ -33,9 +35,10 @@ namespace GastroAPI.Infrastructure.Repository
         }
 
 
-        public async Task<Order?> AddToOrderGroupAsync(Product product, string group)
+        public async Task<Order?> AddToOrderGroupAsync(int productId, string group)
         {
             Order order = _context.Orders.FirstOrDefault(o => o.Group == group);
+            Product product = _context.Products.FirstOrDefault(p => p.Id == productId);
             order.AddOrderedProducts(product);
 
             await _context.SaveChangesAsync();
@@ -50,8 +53,9 @@ namespace GastroAPI.Infrastructure.Repository
             return order;
         }
 
-        public async Task<Order> CreateOrderGroupAsync(Product product, string group)
+        public async Task<Order> CreateOrderGroupAsync(int productId, string group)
         {
+            Product product = _context.Products.FirstOrDefault(p => p.Id == productId);
             Order order = new Order();
             order.SetGroup(group);
             order.AddOrderedProducts(product);
