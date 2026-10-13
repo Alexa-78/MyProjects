@@ -5,10 +5,10 @@ namespace ScoutAPI.Domain.Entities
     public class Player
     {
         public int Id { get; set; }
-        private string Name { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
         private Hashtable skillsList { get; set; } = new Hashtable();
 
-        public Player() 
+        public Player(string name) 
         {
             AddSkills(Skills.Stamina, 3);
         }

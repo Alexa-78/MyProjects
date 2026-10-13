@@ -1,5 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using ScoutAPI.Application.Interfaces;
+using ScoutAPI.Application.Services;
 using ScoutAPI.Infrastructure.Entitiy_Framework_Core;
+using ScoutAPI.Infrastructure.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
+builder.Services.AddScoped<PlayerService>();
 
 // für EF Core (DBContext)
 var connectionstring = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -34,9 +39,9 @@ using (var scope = app.Services.CreateScope())
 // Configure the HTTP request pipeline.
 
 app.UseHttpsRedirection();
+app.UseAuthorization();
 
-
-
+app.MapControllers();
 app.Run();
 
 
