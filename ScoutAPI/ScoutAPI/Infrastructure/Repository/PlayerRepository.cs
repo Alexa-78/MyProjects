@@ -17,7 +17,7 @@ namespace ScoutAPI.Infrastructure.Repository
         {
             await _context.Players.AddAsync(player);
             await _context.SaveChangesAsync();
-
+            //
             return player;
         }
     }
