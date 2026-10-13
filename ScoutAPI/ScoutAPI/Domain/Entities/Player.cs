@@ -10,7 +10,11 @@ namespace ScoutAPI.Domain.Entities
 
         public Player(string name) 
         {
+            Name = name;
+
             AddSkills(Skills.Stamina, 3);
+            AddSkills(Skills.Speed, 2);
+            AddSkills(Skills.Passing, 2);
         }
 
         public void AddSkills(Skills skill, int value)
