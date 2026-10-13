@@ -7,6 +7,11 @@ namespace GastroAPI.Infrastructure.Repository
     public class OrderRepository : IOrderRepository
     {
         private readonly GastroContext _context;
+
+        public OrderRepository(GastroContext context)
+        {
+            _context = context;
+        }
         
         public async Task<Order?> AddToOrderAsync(int productId, string name)
         {
@@ -31,6 +36,9 @@ namespace GastroAPI.Infrastructure.Repository
             Order order = new Order();
             order.SetName(name);
             order.AddOrderedProducts(product);
+
+            await _context.AddAsync(order);
+            await _context.SaveChangesAsync();
             return order;
         }
 
@@ -59,6 +67,10 @@ namespace GastroAPI.Infrastructure.Repository
             Order order = new Order();
             order.SetGroup(group);
             order.AddOrderedProducts(product);
+
+            await _context.AddAsync(order);
+            await _context.SaveChangesAsync();
+
             return order;
         }
     }

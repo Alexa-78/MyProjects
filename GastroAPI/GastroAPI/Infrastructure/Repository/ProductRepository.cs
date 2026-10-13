@@ -26,7 +26,7 @@ namespace GastroAPI.Infrastructure.Repository
 
         public async Task<Product> CreateProductAsync(Product product)
         {
-            _context.Products.Add(product);
+            await _context.Products.AddAsync(product);
             await _context.SaveChangesAsync();
             return product;
         }
