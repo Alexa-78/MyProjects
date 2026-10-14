@@ -12,16 +12,6 @@ namespace GastroAPI.Infrastructure.Repository
         {
             _context = context;
         }
-        
-        public async Task<Order?> AddToOrderAsync(int productId, string name)
-        {
-            Order order = _context.Orders.FirstOrDefault(o => o.Name == name);
-            Product product = _context.Products.FirstOrDefault(p => p.Id == productId);
-            order.AddOrderedProducts(product);
-            await _context.SaveChangesAsync();
-
-            return order;
-        }
 
         public async Task<Order> GetOrderAsync(string name)
         {
@@ -39,18 +29,6 @@ namespace GastroAPI.Infrastructure.Repository
 
             await _context.AddAsync(order);
             await _context.SaveChangesAsync();
-            return order;
-        }
-
-
-        public async Task<Order?> AddToOrderGroupAsync(int productId, string group)
-        {
-            Order order = _context.Orders.FirstOrDefault(o => o.Group == group);
-            Product product = _context.Products.FirstOrDefault(p => p.Id == productId);
-            order.AddOrderedProducts(product);
-
-            await _context.SaveChangesAsync();
-
             return order;
         }
 
