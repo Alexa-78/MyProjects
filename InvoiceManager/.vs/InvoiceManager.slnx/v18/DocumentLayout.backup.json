@@ -1,0 +1,117 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|c:\\users\\zeus\\source\\repos\\invoicemanager\\invoicemanager\\forms\\invoiceform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|solutionrelative:invoicemanager\\forms\\invoiceform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\invoicemanager\\forms\\invoiceform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|solutionrelative:invoicemanager\\forms\\invoiceform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|c:\\users\\zeus\\source\\repos\\invoicemanager\\invoicemanager\\services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|solutionrelative:invoicemanager\\services\\customerservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|c:\\users\\zeus\\source\\repos\\invoicemanager\\invoicemanager\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|solutionrelative:invoicemanager\\services\\invoiceservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|c:\\users\\zeus\\source\\repos\\invoicemanager\\invoicemanager\\models\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|solutionrelative:invoicemanager\\models\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|c:\\users\\zeus\\source\\repos\\invoicemanager\\invoicemanager\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C9A031E4-9504-07CF-E4F3-14DA0B3758EC}|InvoiceManager\\InvoiceManager.csproj|solutionrelative:invoicemanager\\forms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InvoiceForm.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Forms\\InvoiceForm.cs",
+              "RelativeDocumentMoniker": "InvoiceManager\\Forms\\InvoiceForm.cs",
+              "ToolTip": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Forms\\InvoiceForm.cs [Design]",
+              "RelativeToolTip": "InvoiceManager\\Forms\\InvoiceForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T16:51:08.506Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InvoiceForm.cs",
+              "DocumentMoniker": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Forms\\InvoiceForm.cs",
+              "RelativeDocumentMoniker": "InvoiceManager\\Forms\\InvoiceForm.cs",
+              "ToolTip": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Forms\\InvoiceForm.cs",
+              "RelativeToolTip": "InvoiceManager\\Forms\\InvoiceForm.cs",
+              "ViewState": "AgIAAEwAAAAAAAAAAADwv1cAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T16:02:48.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Invoice.cs",
+              "DocumentMoniker": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Models\\Invoice.cs",
+              "RelativeDocumentMoniker": "InvoiceManager\\Models\\Invoice.cs",
+              "ToolTip": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Models\\Invoice.cs",
+              "RelativeToolTip": "InvoiceManager\\Models\\Invoice.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-22T14:57:56.814Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InvoiceService.cs",
+              "DocumentMoniker": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Services\\InvoiceService.cs",
+              "RelativeDocumentMoniker": "InvoiceManager\\Services\\InvoiceService.cs",
+              "ToolTip": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Services\\InvoiceService.cs",
+              "RelativeToolTip": "InvoiceManager\\Services\\InvoiceService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAAFEAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-14T19:50:06.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CustomerService.cs",
+              "DocumentMoniker": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Services\\CustomerService.cs",
+              "RelativeDocumentMoniker": "InvoiceManager\\Services\\CustomerService.cs",
+              "ToolTip": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Services\\CustomerService.cs",
+              "RelativeToolTip": "InvoiceManager\\Services\\CustomerService.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-14T10:53:40.355Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Forms\\MainForm.cs",
+              "RelativeDocumentMoniker": "InvoiceManager\\Forms\\MainForm.cs",
+              "ToolTip": "C:\\Users\\Zeus\\source\\repos\\InvoiceManager\\InvoiceManager\\Forms\\MainForm.cs",
+              "RelativeToolTip": "InvoiceManager\\Forms\\MainForm.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-07-14T11:16:13.926Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
