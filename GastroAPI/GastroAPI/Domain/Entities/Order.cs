@@ -6,7 +6,7 @@
         public string Name { get; private set; }
         public string Group { get; private set; } //eg table or umbrella
 
-        private List<Product> OrderedProducts { get; set; } = new();
+        //private List<Product> OrderedProducts { get; set; } = new();
 
         public Order()
         {
@@ -25,12 +25,12 @@
             Group = group;
         }
 
-        public void AddOrderedProducts(Product product)
-        {
-            if (product == null)
-                throw new ArgumentNullException(nameof(product));
+        //public void AddOrderedProducts(Product product)
+        //{
+        //    if (product == null)
+        //        throw new ArgumentNullException(nameof(product));
 
-            OrderedProducts.Add(product);
-        }
+        //    OrderedProducts.Add(product);
+        //}
     }
 }

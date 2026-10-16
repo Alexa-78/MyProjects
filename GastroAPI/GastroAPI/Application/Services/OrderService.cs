@@ -52,7 +52,10 @@ namespace GastroAPI.Application.Services
             if (product == null)
                 return null;
 
-            var order = await _orderRepository.CreateOrderAsync(productId, name);
+            Order order = new Order();
+            order.SetName(name);
+
+            await _orderRepository.CreateOrderAsync(order);
 
             if (order == null)
                 return null;
@@ -103,7 +106,10 @@ namespace GastroAPI.Application.Services
             if (product == null)
                 return null;
 
-            var order = await _orderRepository.CreateOrderGroupAsync(productId, group);
+            Order order = new Order();
+            order.SetGroup(group);
+
+            await _orderRepository.CreateOrderGroupAsync(order);
 
             if (order == null)
                 return null;

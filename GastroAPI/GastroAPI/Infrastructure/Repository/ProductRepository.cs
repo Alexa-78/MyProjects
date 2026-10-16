@@ -37,8 +37,7 @@ namespace GastroAPI.Infrastructure.Repository
 
             if (prod != null)
             {
-                //bk.Title = product.Title;
-                //bk.Description = product.Description;
+                prod.UpdateProduct(product.Number, product.Name, product.Price);
                 await _context.SaveChangesAsync();
 
                 return product;
