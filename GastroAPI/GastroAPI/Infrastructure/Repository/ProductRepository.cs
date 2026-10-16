@@ -26,7 +26,9 @@ namespace GastroAPI.Infrastructure.Repository
 
         public async Task<Product> CreateProductAsync(Product product)
         {
-            await _context.Products.AddAsync(product);
+            ArgumentNullException.ThrowIfNull(product);
+
+            _context.Products.Add(product);
             await _context.SaveChangesAsync();
             return product;
         }
@@ -35,15 +37,16 @@ namespace GastroAPI.Infrastructure.Repository
         {
             var prod = await _context.Products.FirstOrDefaultAsync(p => p.Id == id);
 
-            if (prod != null)
+            if (prod == null)
             {
-                prod.UpdateProduct(product.Number, product.Name, product.Price);
-                await _context.SaveChangesAsync();
-
-                return product;
+                return null;
             }
 
-            return null;
+            prod.UpdateProduct(product.Number, product.Name, product.Price);
+
+            await _context.SaveChangesAsync();
+
+            return prod;
         }
 
         public async Task<bool> DeleteProductAsync(int id)

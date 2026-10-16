@@ -16,7 +16,9 @@ namespace GastroAPI.Infrastructure.Repository
 
         public async Task<OrderedProducts> AddProductAsync(OrderedProducts orderedproduct)
         {
-            await _context.OrderedProducts.AddAsync(orderedproduct);
+            ArgumentNullException.ThrowIfNull(orderedproduct);
+
+            _context.OrderedProducts.Add(orderedproduct);
             await _context.SaveChangesAsync();
             return orderedproduct;
         }

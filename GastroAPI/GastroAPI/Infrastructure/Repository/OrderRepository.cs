@@ -1,6 +1,7 @@
 ﻿using GastroAPI.Application.Interfaces;
 using GastroAPI.Domain.Entities;
 using GastroAPI.Infrastructure.Entity_Framework_Core;
+using Microsoft.EntityFrameworkCore;
 
 namespace GastroAPI.Infrastructure.Repository
 {
@@ -13,29 +14,29 @@ namespace GastroAPI.Infrastructure.Repository
             _context = context;
         }
 
-        public async Task<Order> GetOrderAsync(string name)
+        public async Task<Order?> GetOrderAsync(string name)
         {
-            Order order = _context.Orders.FirstOrDefault(o => o.Name == name);
-
-            return order;
+            return await _context.Orders.FirstOrDefaultAsync(o => o.Name == name);
         }
 
         public async Task CreateOrderAsync(Order order)
-        {      
-            await _context.AddAsync(order);
+        {
+            ArgumentNullException.ThrowIfNull(order);
+
+            _context.Orders.Add(order);
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Order> GetOrderGroupAsync(string group)
+        public async Task<Order?> GetOrderGroupAsync(string group)
         {
-            Order order = _context.Orders.FirstOrDefault(o => o.Group == group);
-
-            return order;
+            return await _context.Orders.FirstOrDefaultAsync(o => o.Group == group);
         }
 
         public async Task CreateOrderGroupAsync(Order order)
         {
-            await _context.AddAsync(order);
+            ArgumentNullException.ThrowIfNull(order);
+
+            _context.Orders.Add(order);
             await _context.SaveChangesAsync();
         }
     }
