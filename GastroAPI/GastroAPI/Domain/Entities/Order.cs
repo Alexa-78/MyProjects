@@ -6,8 +6,6 @@
         public string Name { get; private set; }
         public string Group { get; private set; } //eg table or umbrella
 
-        //private List<Product> OrderedProducts { get; set; } = new();
-
         public Order()
         {
             Name = "";
