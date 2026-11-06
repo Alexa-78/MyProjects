@@ -8,7 +8,7 @@ namespace OrderAPI.Application.Interfaces
         Task<Order?> CreateNewOrder(CreateOrderRequest orderItem);
         Task<Order?> GetOrder(Guid orderid);
         Task<IEnumerable<Order>> GetAllOrders();
-        Task<Order?> UpdateOrderStatus(OrderStatus status, Guid id);
+        Task<Order?> UpdateOrderStatus(Guid id, OrderStatus status);
 
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using OrderAPI.Application.DTOs;
+using OrderAPI.Application.Interfaces;
 using OrderAPI.Application.Services;
 using OrderAPI.Domain.Entities;
 
@@ -10,8 +11,8 @@ namespace OrderAPI.Presentation
     [ApiController]
     public class OrderController : Controller
     {
-        private readonly OrderService _orderService;
-        public OrderController(OrderService orderService)
+        private readonly IOrder _orderService;
+        public OrderController(IOrder orderService)
         {
             _orderService = orderService;
         }

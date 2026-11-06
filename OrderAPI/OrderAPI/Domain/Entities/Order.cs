@@ -10,6 +10,11 @@ namespace OrderAPI.Domain.Entities
         public OrderStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
 
+        public Order()
+        {
+
+        }
+
         public Order(CreateOrderRequest request)
         {
             CustomerMail = request.CustomerEmail;
