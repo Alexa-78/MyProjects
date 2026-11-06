@@ -19,6 +19,8 @@ namespace OrderAPI.Domain.Entities
         {
             CustomerMail = request.CustomerEmail;
             TotalAmount = request.TotalAmount;
+
+            CreatedAt = DateTime.Now;
         }
 
         

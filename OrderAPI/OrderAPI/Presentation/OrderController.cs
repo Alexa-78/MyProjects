@@ -25,7 +25,7 @@ namespace OrderAPI.Presentation
             if (order == null)
                 return BadRequest("Ungültige Bestellsumme.");
 
-            return CreatedAtAction(nameof(GetOrder),new { orderid = order.Id },order);
+            return CreatedAtAction(nameof(GetOrder),new { id = order.Id },order);
         }
 
         [HttpGet("{id}")]
