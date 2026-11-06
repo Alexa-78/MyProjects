@@ -3,6 +3,8 @@ using OrderAPI.Application.Interfaces;
 using OrderAPI.Application.Services;
 using OrderAPI.Infrastructure.Data;
 
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -23,6 +25,9 @@ builder.Services.AddDbContext<OrderContext>(options =>
         }
     ));
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 var app = builder.Build();
 
 using (var scope = app.Services.CreateScope())
@@ -30,6 +35,9 @@ using (var scope = app.Services.CreateScope())
     var db = scope.ServiceProvider.GetRequiredService<OrderContext>();
     db.Database.EnsureCreated();
 }
+
+app.UseSwagger();
+app.UseSwaggerUI();
 
 // Configure the HTTP request pipeline.
 

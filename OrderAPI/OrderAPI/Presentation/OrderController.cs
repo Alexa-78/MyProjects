@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using OrderAPI.Application.DTOs;
 using OrderAPI.Application.Interfaces;
-using OrderAPI.Application.Services;
 using OrderAPI.Domain.Entities;
 
 namespace OrderAPI.Presentation
