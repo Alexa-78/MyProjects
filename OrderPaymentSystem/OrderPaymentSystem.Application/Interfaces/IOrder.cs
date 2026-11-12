@@ -1,0 +1,14 @@
+﻿using OrderPaymentSystem.Application.DTOs;
+using OrderPaymentSystem.Domain.Entities;
+
+namespace OrderPaymentSystem.Application.Interfaces
+{
+    public interface IOrder
+    {
+        Task<Order?> CreateNewOrder(CreateOrderRequest orderItem);
+        Task<Order?> GetOrder(Guid orderid);
+        Task<IEnumerable<Order>> GetAllOrders();
+        Task<Order?> UpdateOrderStatus(Guid id, OrderStatus status);
+
+    }
+}

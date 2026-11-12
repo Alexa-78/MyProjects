@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="OrderPaymentSystem.Api/OrderPaymentSystem.Api.csproj" />
+  <Project Path="OrderPaymentSystem.Application/OrderPaymentSystem.Application.csproj" Id="cd567a45-d73f-49fa-9fee-96e4c6b4cf6f" />
+  <Project Path="OrderPaymentSystem.Domain/OrderPaymentSystem.Domain.csproj" Id="cdf7f4ae-51b1-41b7-b6da-840a0b372508" />
+  <Project Path="OrderPaymentSystem.Infrastructure/OrderPaymentSystem.Infrastructure.csproj" Id="5d0b8b9e-8e46-4277-b4c1-238450d75525" />
+</Solution>
