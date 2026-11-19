@@ -16,9 +16,9 @@ namespace OrderPaymentSystem.Presentation
         }
 
         [HttpPost]
-        public async Task<ActionResult<Order>> CreateNewOrder([FromBody]CreateOrderRequest request)
+        public async Task<ActionResult<Order>> CreateNewOrder([FromBody]CreateOrderRequest request, CancellationToken cancellationToken)
         {
-            var order = await _orderService.CreateNewOrder(request);
+            var order = await _orderService.CreateNewOrder(request, cancellationToken);
 
             if (order == null)
                 return BadRequest("Ungültige Bestellsumme.");
@@ -26,10 +26,10 @@ namespace OrderPaymentSystem.Presentation
             return CreatedAtAction(nameof(GetOrder),new { id = order.Id },order);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Order>> GetOrder(Guid id)
+        [HttpGet("{id:guid}")]
+        public async Task<ActionResult<Order>> GetOrder(Guid id, CancellationToken cancellationToken)
         {
-            var order = await _orderService.GetOrder(id);
+            var order = await _orderService.GetOrder(id, cancellationToken);
 
             if (order == null) 
                 return NotFound();
@@ -38,16 +38,16 @@ namespace OrderPaymentSystem.Presentation
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Order>>> GetAllOrders()
+        public async Task<ActionResult<IEnumerable<Order>>> GetAllOrders(CancellationToken cancellationToken)
         {
-            var orders = await _orderService.GetAllOrders();
+            var orders = await _orderService.GetAllOrders(cancellationToken);
             return Ok(orders);
         }
 
-        [HttpPatch("{id}/status")]
-        public async Task<ActionResult<Order>> UpdateOrderStatus(Guid id, [FromBody]UpdateOrderStatusRequest request)
+        [HttpPatch("{id:guid}/status")]
+        public async Task<ActionResult<Order>> UpdateOrderStatus(Guid id, [FromBody]UpdateOrderStatusRequest request, CancellationToken cancellationToken)
         {
-            var updated = await _orderService.UpdateOrderStatus(id, request.Status);
+            var updated = await _orderService.UpdateOrderStatus(id, request.Status, cancellationToken);
             if (updated == null) return NotFound();
             return Ok(updated);
         }

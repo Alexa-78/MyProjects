@@ -4,12 +4,12 @@ namespace OrderPaymentSystem.Application.Interfaces
 {
     public interface IOrderRepository
     {
-        Task<Order> CreateAsync(Order order);
+        Task<Order> CreateAsync(Order order, CancellationToken cancellationToken = default);
 
-        Task<Order?> GetByIdAsync(Guid id);
+        Task<Order?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
-        Task<IEnumerable<Order>> GetAllAsync();
+        Task<IEnumerable<Order>> GetAllAsync(CancellationToken cancellationToken = default);
 
-        Task SaveChangesAsync();
+        Task SaveChangesAsync(CancellationToken cancellationToken = default);
     }
 }

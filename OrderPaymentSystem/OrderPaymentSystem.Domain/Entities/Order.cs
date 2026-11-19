@@ -8,7 +8,7 @@
         public OrderStatus Status { get; set; }
         public DateTime CreatedAt { get; set; }
 
-        public Order()
+        private Order()
         {
 
         }
@@ -25,9 +25,11 @@
         
         public void SetOrderStatus(OrderStatus status)
         {
-            if (Status == OrderStatus.Paid)
+            if (Status == OrderStatus.Paid ||
+            Status == OrderStatus.Shipped ||
+            Status == OrderStatus.Cancelled)
             {
-                throw new InvalidOperationException("Eine abgeschlossene Bestellung kann nicht geändert werden.");
+                throw new InvalidOperationException("Diese Bestellung kann nicht mehr geändert werden.");
             }
 
             Status = status;
@@ -35,16 +37,22 @@
 
         public bool CheckOrderSum()
         {
-            if (TotalAmount > 0)
-                return true;
-            else
-                return false;
+            return TotalAmount > 0;
         }
 
-        public void UpdateOrder(Order order)
+        public void UpdateOrder(string customerMail, decimal totalAmount)
         {
-            CustomerMail = order.CustomerMail;
-            TotalAmount = order.TotalAmount;
+            if (Status != OrderStatus.Created)
+                throw new InvalidOperationException("Nur neue Bestellungen können geändert werden.");
+
+            if (string.IsNullOrWhiteSpace(customerMail))
+                throw new ArgumentException("CustomerMail darf nicht leer sein.");
+
+            if (totalAmount <= 0)
+                throw new ArgumentException("Der Bestellbetrag muss größer als 0 sein.");
+
+            CustomerMail = customerMail;
+            TotalAmount = totalAmount;
         }
 
     }

@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using OrderPaymentSystem.Application;
 using OrderPaymentSystem.Infrastructure;
 using OrderPaymentSystem.Infrastructure.Data;
@@ -15,11 +16,11 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Datenbank erstellen
-using (var scope = app.Services.CreateScope())
+// Datenbankmigrationen anwenden
+await using (var scope = app.Services.CreateAsyncScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<OrderContext>();
-    db.Database.EnsureCreated();
+    await db.Database.MigrateAsync();
 }
 
 app.UseSwagger();

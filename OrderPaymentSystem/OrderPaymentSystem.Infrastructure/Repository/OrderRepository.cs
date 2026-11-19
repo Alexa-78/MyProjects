@@ -14,27 +14,27 @@ namespace OrderPaymentSystem.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<Order> CreateAsync(Order order)
+        public async Task<Order> CreateAsync(Order order, CancellationToken cancellationToken = default)
         {
-            await _context.Orders.AddAsync(order);
-            await _context.SaveChangesAsync();
+            await _context.Orders.AddAsync(order, cancellationToken);
+            await _context.SaveChangesAsync(cancellationToken);
 
             return order;
         }
 
-        public async Task<Order?> GetByIdAsync(Guid id)
+        public async Task<Order?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
-            return await _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
+            return await _context.Orders.FirstOrDefaultAsync(o => o.Id == id, cancellationToken);
         }
 
-        public async Task<IEnumerable<Order>> GetAllAsync()
+        public async Task<IEnumerable<Order>> GetAllAsync(CancellationToken cancellationToken = default)
         {
-            return await _context.Orders.ToListAsync();
+            return await _context.Orders.ToListAsync(cancellationToken);
         }
 
-        public async Task SaveChangesAsync()
+        public async Task SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-            await _context.SaveChangesAsync();
+            await _context.SaveChangesAsync(cancellationToken);
         }
     }
 }
