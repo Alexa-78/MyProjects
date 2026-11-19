@@ -2,6 +2,7 @@
 using OrderPaymentSystem.Application.Interfaces;
 using OrderPaymentSystem.Domain.Entities;
 using Microsoft.Extensions.Logging;
+using System.Text.Json;
 
 namespace OrderPaymentSystem.Application.Services
 {
@@ -28,7 +29,20 @@ namespace OrderPaymentSystem.Application.Services
                 if (!order.CheckOrderSum())
                     return null;
 
-                return await _orderRepository.CreateAsync(order, cancellationToken);
+                var payload = JsonSerializer.Serialize(new
+                {
+                    order.Id,
+                    order.CustomerMail,
+                    order.TotalAmount,
+                    order.Status,
+                    order.CreatedAt
+                });
+
+                return await _orderRepository.CreateWithOutboxAsync(
+                    order,
+                    "OrderCreated",
+                    payload,
+                    cancellationToken);
             }
             catch (OperationCanceledException)
             {

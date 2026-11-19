@@ -6,6 +6,8 @@ namespace OrderPaymentSystem.Application.Interfaces
     {
         Task<Order> CreateAsync(Order order, CancellationToken cancellationToken = default);
 
+        Task<Order> CreateWithOutboxAsync(Order order, string eventType, string payload, CancellationToken cancellationToken = default);
+
         Task<Order?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
 
         Task<IEnumerable<Order>> GetAllAsync(CancellationToken cancellationToken = default);

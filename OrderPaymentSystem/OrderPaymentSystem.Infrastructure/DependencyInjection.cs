@@ -4,6 +4,8 @@ using OrderPaymentSystem.Infrastructure.Data;
 using OrderPaymentSystem.Infrastructure.Repositories;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using OrderPaymentSystem.Infrastructure.Messaging;
+using Microsoft.Extensions.Hosting;
 
 namespace OrderPaymentSystem.Infrastructure
 {
@@ -27,6 +29,10 @@ namespace OrderPaymentSystem.Infrastructure
                 ));
 
             services.AddScoped<IOrderRepository, OrderRepository>();
+
+            services.AddSingleton<RabbitMQPublisher>();
+            services.AddScoped<OutboxProcessor>();
+            services.AddHostedService<OutboxBackgroundService>();
 
             return services;
         }
