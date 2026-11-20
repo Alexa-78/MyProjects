@@ -23,8 +23,7 @@ namespace OrderPaymentSystem.Infrastructure.Messaging
             };
         }
 
-        private async Task<IConnection> GetConnectionAsync(
-            CancellationToken cancellationToken)
+        private async Task<IConnection> GetConnectionAsync(CancellationToken cancellationToken)
         {
             if (_connection is { IsOpen: true })
                 return _connection;
