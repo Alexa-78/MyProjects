@@ -128,7 +128,7 @@ Configure the SQL Server connection string in `appsettings.json`:
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/DiskSpaceMonitor.git
+git clone https://github.com/Alexa-78/MyProjects/tree/main/DiskSpaceMonitor.git
 cd DiskSpaceMonitor
 ```
 
